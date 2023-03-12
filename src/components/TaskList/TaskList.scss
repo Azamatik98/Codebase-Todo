@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  background-color: $bg-primary;
+  border-radius: 10px;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  &:hover {
+    background-color: #fce3fa83;
+    .task_delete {
+      display: flex;
+      &:hover {
+        background-color: #f5442d;
+      }
+    }
+  }
+  &_title {
+    padding: 15px 10px;
+    font-weight: 600;
+    flex: 1;
+  }
+  &_delete {
+    display: none;
+    border-left: 1px solid #fff;
+    border-radius: 0 10px 10px 0;
+    width: 44px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
