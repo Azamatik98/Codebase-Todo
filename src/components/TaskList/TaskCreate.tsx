@@ -1,11 +1,12 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import { TaskT } from ".";
+import { TypeTask } from ".";
+import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
 
 import "./TaskList.scss";
 
 interface TaskCreateProps {
-  addTask: (item: TaskT) => void;
+  addTask: (item: TypeTask) => void;
 }
 
 const TaskCreate: React.FC<TaskCreateProps> = ({ addTask }) => {
@@ -46,19 +47,7 @@ const TaskCreate: React.FC<TaskCreateProps> = ({ addTask }) => {
         <form onSubmit={onSubmit}>
           <input type="text" value={value} onChange={onChangeValue} autoFocus />
           <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-            >
-              <g data-name="Layer 2">
-                <path
-                  fill="#000000"
-                  d="M9.86 18a1 1 0 0 1-.73-.32l-4.86-5.17a1 1 0 1 1 1.46-1.37l4.12 4.39 8.41-9.2a1 1 0 1 1 1.48 1.34l-9.14 10a1 1 0 0 1-.73.33Z"
-                />
-              </g>
-            </svg>
+            <GlobalSvgSelector id="check" />
           </button>
         </form>
       ) : (

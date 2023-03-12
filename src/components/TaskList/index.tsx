@@ -5,13 +5,13 @@ import TaskCreate from "./TaskCreate";
 
 interface TaskListProps {}
 
-export type TaskT = {
+export type TypeTask = {
   id: string;
   title: string;
 };
 
 const TaskList: React.FC<TaskListProps> = () => {
-  const [tasks, setTasks] = React.useState<TaskT[]>(
+  const [tasks, setTasks] = React.useState<TypeTask[]>(
     JSON.parse(localStorage.getItem("tasks") || "null") || []
   );
 
@@ -19,7 +19,7 @@ const TaskList: React.FC<TaskListProps> = () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const addTask = (item: TaskT) => {
+  const addTask = (item: TypeTask) => {
     setTasks((prevState) => [...prevState, item]);
   };
 
