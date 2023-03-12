@@ -6,15 +6,20 @@ import "./TaskList.scss";
 interface TaskListItemProps {
   id: string;
   title: string;
+  deleteTask: (id: string) => void;
 }
 
-const TaskListItem: React.FC<TaskListItemProps> = ({ id, title }) => {
+const TaskListItem: React.FC<TaskListItemProps> = ({
+  id,
+  title,
+  deleteTask,
+}) => {
   return (
     <div className="task">
       <Link to={"/" + id} className="task_title">
         {title}
       </Link>
-      <button className="task_delete">
+      <button onClick={() => deleteTask(id)} className="task_delete">
         <GlobalSvgSelector id="x" />
       </button>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import { TypeTask } from ".";
+import { TypeTask } from "../../types/task";
 import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
 
 import "./TaskList.scss";
