@@ -1,0 +1,19 @@
+@import "../../scss/variables";
+
+.boards {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  width: 33%;
+  background-color: $bg-secondary;
+  border-radius: 5px;
+  &_title {
+    padding: 5px;
+    text-align: center;
+    font-weight: 500;
+  }
+}
