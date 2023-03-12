@@ -2,10 +2,11 @@ import React from "react";
 import "./TaskList.scss";
 
 interface TaskListItemProps {
+  id: string;
   title: string;
 }
 
-const TaskListItem: React.FC<TaskListItemProps> = ({ title }) => {
+const TaskListItem: React.FC<TaskListItemProps> = ({ id, title }) => {
   return (
     <div className="task">
       <div className="task_title">{title}</div>
