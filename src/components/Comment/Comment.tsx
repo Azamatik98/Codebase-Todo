@@ -1,6 +1,6 @@
 import React from "react";
-import { TComment } from "../../types/project";
 import style from "./Comment.module.scss";
+import { TComment } from "../../types/project";
 
 interface CommentProps {
   comment: TComment;

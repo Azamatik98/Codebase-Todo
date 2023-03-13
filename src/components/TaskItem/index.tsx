@@ -1,10 +1,10 @@
 import React from "react";
-import { Draggable } from "react-beautiful-dnd";
-import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
-import { TTask } from "../../types/project";
-import EditTask from "../EditTask";
-import Modal from "../Modal/Modal";
 import style from "./TaskItem.module.scss";
+import { TTask } from "../../types/project";
+import { Draggable } from "react-beautiful-dnd";
+import Modal from "../Modal/Modal";
+import EditTask from "../EditTask";
+import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
 
 interface TaskItemProps {
   index: number;

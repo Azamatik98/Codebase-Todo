@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./EditTask.module.scss";
 import { TFile } from "../../types/project";
-
 interface FileProps {
   file: TFile;
 }

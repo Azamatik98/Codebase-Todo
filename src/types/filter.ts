@@ -3,11 +3,11 @@ export type FilterState = {
 };
 
 export enum FilterActionTypes {
-  SET_SERCH = "SET_SEARCH",
+  SET_SEARCH = "SET_SEARCH",
 }
 
 interface UpdateTaskAction {
-  type: FilterActionTypes.SET_SERCH;
+  type: FilterActionTypes.SET_SEARCH;
   payload: string;
 }
 

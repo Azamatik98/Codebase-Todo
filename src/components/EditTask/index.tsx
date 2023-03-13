@@ -1,19 +1,18 @@
 import React from "react";
-import moment from "moment";
-import { FileInfo, Widget } from "@uploadcare/react-widget";
-
 import style from "./EditTask.module.scss";
+import moment from "moment";
 import {
   ProjectActionTypes,
-  TTask,
   TComment,
   TFile,
   TSubtask,
+  TTask,
 } from "../../types/project";
 import TextArea from "./TextArea";
-import File from "./File";
 import { useAppDispatch } from "../../hook";
-import SubTask from "../SubTask";
+import Subtask from "../SubTask";
+import { FileInfo, Widget } from "@uploadcare/react-widget";
+import File from "./File";
 import Comment from "../Comment/Comment";
 
 interface EditTaskProps {
@@ -42,14 +41,12 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
       payload: { ...task, title: value },
     });
   };
-
   const onUpdateDesc = (value: string) => {
     dispatch({
       type: ProjectActionTypes.UPDATE_TASK,
       payload: { ...task, description: value },
     });
   };
-
   const createSubtask = (value: string) => {
     const newSubtask: TSubtask = {
       id: new Date().valueOf().toString(),
@@ -62,7 +59,6 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
       payload: { ...task, subtasks: newSubtasks },
     });
   };
-
   const handleSubtask = (item: TSubtask, checked: boolean) => {
     let newSubtasks = [...task.subtasks];
     newSubtasks[subtasks.indexOf(item)].checked = checked;
@@ -71,7 +67,6 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
       payload: { ...task, subtasks: newSubtasks },
     });
   };
-
   const deleteSubtask = (taskId: string) => {
     let newSubtasks = subtasks.filter((subtask) => subtask.id !== taskId);
     dispatch({
@@ -79,7 +74,6 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
       payload: { ...task, subtasks: newSubtasks },
     });
   };
-
   const createFile = (fileInfo: FileInfo) => {
     let file: TFile = {
       name: fileInfo.name ? fileInfo.name : "",
@@ -87,7 +81,6 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
       url: fileInfo.originalUrl ? fileInfo.originalUrl : "",
       uuid: fileInfo.uuid ? fileInfo.uuid : new Date().valueOf().toString(),
     };
-
     let newFiles = [...attachments, file];
     dispatch({
       type: ProjectActionTypes.UPDATE_TASK,
@@ -106,7 +99,6 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
       payload: { ...task, comments: [...comments, comment] },
     });
   };
-
   return (
     <div className={style.edit}>
       <TextArea rows={2} initialValue={title} onSave={onUpdateTitle}>
@@ -129,7 +121,7 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
         <li>Created: {moment(created).format("DD.MM.YYYY HH:mm")}</li>
         {started && (
           <li>
-            {done ? "Was been in" : "In"} development since : {""}
+            {done ? "Was been in" : "In"} development since:{" "}
             {moment(started).format("DD.MM.YYYY HH:mm")} (
             {done
               ? moment.duration(moment(done).diff(started)).humanize()
@@ -158,7 +150,7 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
         <div className={style.edit_subtitle}>Subtasks</div>
         <div className={style.edit_subtasks_list}>
           {subtasks.map((subtask) => (
-            <SubTask
+            <Subtask
               key={subtask.id}
               subtask={subtask}
               handleSubtask={handleSubtask}
@@ -167,7 +159,7 @@ const EditTask: React.FC<EditTaskProps> = ({ task }) => {
           ))}
         </div>
         <TextArea rows={2} initialValue="" onSave={createSubtask}>
-          <button className={style.edit_button}>Add subtask </button>
+          <button className={style.edit_button}>Add subtask</button>
         </TextArea>
       </div>
       <div className={style.edit_comments}>

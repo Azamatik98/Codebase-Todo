@@ -35,18 +35,18 @@ const TextArea: React.FC<TextAreaProps> = ({
   };
 
   return (
-    <>
+    <div>
       {isOpen ? (
         <div className={style.edit_area}>
           <textarea
-            value={value}
             rows={rows}
+            value={value}
             autoFocus
             onFocus={moveCaretAtEnd}
             onChange={(e) => setValue(e.target.value)}
           ></textarea>
           <button className={style.save} onClick={handleSave}>
-            Сохранить
+            Save
           </button>
           <button className={style.cancel} onClick={() => setOpen(false)}>
             Отмена
@@ -57,7 +57,7 @@ const TextArea: React.FC<TextAreaProps> = ({
           {children}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

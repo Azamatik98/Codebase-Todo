@@ -1,10 +1,10 @@
 import React from "react";
-import { Droppable, DragDropContext, DropResult } from "react-beautiful-dnd";
-import style from "./TaskList.module.scss";
+import style from "./ProjectList.module.scss";
 import ProjectListItem from "./ProjectListItem";
 import ProjectCreate from "./ProjectCreate";
 import { TProject } from "../../types/project";
 import { getLocalProjects, updateLocalProjects } from "../../localStorage";
+import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 
 interface ProjectListProps {}
 
@@ -12,7 +12,6 @@ const ProjectList: React.FC<ProjectListProps> = () => {
   const [projects, setProjects] = React.useState<TProject[]>(
     getLocalProjects() || []
   );
-
   React.useEffect(() => {
     updateLocalProjects(projects);
   }, [projects]);
@@ -20,13 +19,11 @@ const ProjectList: React.FC<ProjectListProps> = () => {
   const addProject = (item: TProject) => {
     setProjects((prevState) => [...prevState, item]);
   };
-
   const deleteProject = (id: string) => {
     if (window.confirm("Delete project?")) {
       setProjects((prevState) => prevState.filter((item) => item.id !== id));
     }
   };
-
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
     if (!destination) return;
@@ -38,7 +35,6 @@ const ProjectList: React.FC<ProjectListProps> = () => {
     ];
     setProjects(list);
   };
-
   return (
     <div className={style.wrapper}>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -53,8 +49,8 @@ const ProjectList: React.FC<ProjectListProps> = () => {
                 <ProjectListItem
                   key={project.id}
                   deleteProject={deleteProject}
-                  {...project}
                   index={i}
+                  {...project}
                 />
               ))}
               {provided.placeholder}

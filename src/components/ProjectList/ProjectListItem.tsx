@@ -1,8 +1,8 @@
 import React from "react";
-import { Draggable } from "react-beautiful-dnd";
-import { Link } from "react-router-dom";
+import style from "./ProjectList.module.scss";
 import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
-import style from "./TaskList.module.scss";
+import { Link } from "react-router-dom";
+import { Draggable } from "react-beautiful-dnd";
 
 interface ProjectListItemProps {
   id: string;

@@ -13,7 +13,7 @@ export const filterReducer = (
   action: FilterAction
 ): FilterState => {
   switch (action.type) {
-    case FilterActionTypes.SET_SERCH:
+    case FilterActionTypes.SET_SEARCH:
       return { ...state, searchValue: action.payload };
     default:
       return state;

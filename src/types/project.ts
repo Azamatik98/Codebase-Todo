@@ -2,26 +2,22 @@ export type TProject = {
   id: string;
   title: string;
 };
-
 export type TSubtask = {
   id: string;
   title: string;
   checked: boolean;
 };
-
 export type TFile = {
   uuid: string;
   name: string;
   url: string;
   size: number;
 };
-
 export type TComment = {
   id: string;
   content: string;
   parent: string;
 };
-
 export type TTask = {
   id: string;
   project: string;
@@ -79,5 +75,5 @@ export type ProjectAction =
   | SetProjectAction
   | SetTasksAction
   | AddTaskAction
-  | DeleteTaskAction
-  | UpdateTaskAction;
+  | UpdateTaskAction
+  | DeleteTaskAction;

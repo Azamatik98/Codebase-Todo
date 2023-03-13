@@ -1,10 +1,9 @@
 import React from "react";
-import { Droppable } from "react-beautiful-dnd";
-
-import { useAppDispatch } from "../../hook";
-import { ProjectActionTypes, TTask } from "../../types/project";
+import style from "./Boards.module.scss";
 import TaskItem from "../TaskItem";
-import style from "./Board.module.scss";
+import { ProjectActionTypes, TTask } from "../../types/project";
+import { Droppable } from "react-beautiful-dnd";
+import { useAppDispatch } from "../../hook";
 
 interface BoardProps {
   id: "queue" | "development" | "done";
@@ -15,11 +14,10 @@ interface BoardProps {
 const Board: React.FC<BoardProps> = ({ id, title, tasks }) => {
   const dispatch = useAppDispatch();
   const deleteTask = (taskId: string, taskTitle: string) => {
-    if (window.confirm(`Delete task ${taskTitle}`)) {
+    if (window.confirm(`Delete task ${taskTitle}?`)) {
       dispatch({ type: ProjectActionTypes.DELETE_TASK, payload: taskId });
     }
   };
-
   return (
     <div className={style.board}>
       <div className={style.board_content}>

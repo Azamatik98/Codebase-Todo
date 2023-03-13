@@ -51,6 +51,7 @@ export const projectReducer = (
         ...state,
         tasks: updateTasks,
       };
+
     default:
       return state;
   }

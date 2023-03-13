@@ -1,9 +1,8 @@
 import React from "react";
+import style from "./ProjectList.module.scss";
 import { v4 as uuidv4 } from "uuid";
-import { TProject } from "../../types/project";
 import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
-
-import style from "./TaskList.module.scss";
+import { TProject } from "../../types/project";
 
 interface ProjectCreateProps {
   addProject: (item: TProject) => void;
@@ -27,14 +26,12 @@ const ProjectCreate: React.FC<ProjectCreateProps> = ({ addProject }) => {
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
-
   const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (value.length === 0 || !value.trim()) {
       alert("Enter project name");
       return;
     }
-
     const item = { id: uuidv4(), title: value };
     addProject(item);
     setValue("");
@@ -45,14 +42,14 @@ const ProjectCreate: React.FC<ProjectCreateProps> = ({ addProject }) => {
     <div ref={createRef} className={style.project_create}>
       {open ? (
         <form onSubmit={onSubmit}>
-          <input type="text" value={value} onChange={onChangeValue} autoFocus />
+          <input type="text" autoFocus value={value} onChange={onChangeValue} />
           <button>
             <GlobalSvgSelector id="check" />
           </button>
         </form>
       ) : (
         <button className={style.button} onClick={() => setOpen(true)}>
-          Добавить задачу
+          Добавить проект
         </button>
       )}
     </div>

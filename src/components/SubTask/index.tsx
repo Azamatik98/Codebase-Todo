@@ -1,15 +1,15 @@
 import React from "react";
-import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
 import style from "./SubTask.module.scss";
 import { TSubtask } from "../../types/project";
+import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
 
-interface SubTaskProps {
+interface SubtaskProps {
   subtask: TSubtask;
   handleSubtask: (item: TSubtask, checked: boolean) => void;
   deleteSubtask: (taskId: string) => void;
 }
 
-const SubTask: React.FC<SubTaskProps> = ({
+const Subtask: React.FC<SubtaskProps> = ({
   subtask,
   handleSubtask,
   deleteSubtask,
@@ -17,7 +17,6 @@ const SubTask: React.FC<SubTaskProps> = ({
   const onChange = () => {
     handleSubtask(subtask, !subtask.checked);
   };
-
   return (
     <div className={style.subtask}>
       <input type="checkbox" checked={subtask.checked} onChange={onChange} />
@@ -35,4 +34,4 @@ const SubTask: React.FC<SubTaskProps> = ({
   );
 };
 
-export default SubTask;
+export default Subtask;

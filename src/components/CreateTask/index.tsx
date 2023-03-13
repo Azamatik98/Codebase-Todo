@@ -1,13 +1,13 @@
 import React from "react";
+import style from "./CreateTask.module.scss";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { ProjectActionTypes, TProject, TTask } from "../../types/project";
-import style from "./CreateTaskBoard.module.scss";
 
-interface CreateTaskBoardProps {
+interface CreateTaskProps {
   setOpen: (arg0: boolean) => void;
 }
 
-const CreateTaskBoard: React.FC<CreateTaskBoardProps> = ({ setOpen }) => {
+const CreateTask: React.FC<CreateTaskProps> = ({ setOpen }) => {
   const dispatch = useAppDispatch();
   const { id }: TProject = useAppSelector((state) => state.project.project);
   const [title, setTitle] = React.useState("");
@@ -31,18 +31,16 @@ const CreateTaskBoard: React.FC<CreateTaskBoardProps> = ({ setOpen }) => {
       started: null,
       done: null,
     };
-
     dispatch({ type: ProjectActionTypes.ADD_TASK, payload: item });
     setTitle("");
     setDescription("");
     setPriority("");
     setOpen(false);
   };
-
   return (
     <div className={style.wrapper}>
       <div className={style.create_title}>Create Task</div>
-      <form className={style.create_form} onSubmit={onSubmitForm}>
+      <form onSubmit={onSubmitForm} className={style.create_form}>
         <input
           type="text"
           placeholder="Title"
@@ -51,8 +49,8 @@ const CreateTaskBoard: React.FC<CreateTaskBoardProps> = ({ setOpen }) => {
           required
         />
         <textarea
-          name="Description"
           id="Description"
+          name="Description"
           rows={5}
           placeholder="Description"
           value={description}
@@ -66,6 +64,7 @@ const CreateTaskBoard: React.FC<CreateTaskBoardProps> = ({ setOpen }) => {
           onChange={(e) => setPriority(e.target.value)}
           required
         >
+          {}
           <option value="">Select Priority</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
@@ -77,4 +76,4 @@ const CreateTaskBoard: React.FC<CreateTaskBoardProps> = ({ setOpen }) => {
   );
 };
 
-export default CreateTaskBoard;
+export default CreateTask;
