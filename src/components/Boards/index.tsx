@@ -6,7 +6,7 @@ interface BoardsProps {}
 
 const boards = ["Queue", "Development", "Done"];
 
-const Boards: React.FC<BoardsProps> = () => {
+const Boards: React.FC<BoardsProps> = ({}) => {
   return (
     <div className="boards">
       {boards.map((board, i) => (

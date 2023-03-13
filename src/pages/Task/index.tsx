@@ -2,12 +2,15 @@ import React from "react";
 import "./Task.scss";
 import Boards from "../../components/Boards";
 import { useLocation, useNavigate } from "react-router-dom";
-import { TypeTask } from "../../types/task";
+import { TaskActionTypes, TypeTask } from "../../types/task";
+import TaskTools from "../../components/TaskTools";
+import { useAppDispatch } from "../../hook";
 
 interface TaskProps {}
 
 const Task: React.FC<TaskProps> = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const id = useLocation().pathname.slice(1);
 
   React.useEffect(() => {
@@ -17,13 +20,14 @@ const Task: React.FC<TaskProps> = () => {
     if (!task) {
       navigate("/");
     }
-    //
+    dispatch({ type: TaskActionTypes.SET_TASK, payload: task });
   });
 
   return (
-    <>
+    <div className="task">
+      <TaskTools />
       <Boards />
-    </>
+    </div>
   );
 };
 
