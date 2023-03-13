@@ -6,9 +6,9 @@ import ProjectCreate from "./ProjectCreate";
 import { TProject } from "../../types/project";
 import { getLocalProjects, updateLocalProjects } from "../../localStorage";
 
-interface TaskListProps {}
+interface ProjectListProps {}
 
-const TaskList: React.FC<TaskListProps> = () => {
+const ProjectList: React.FC<ProjectListProps> = () => {
   const [projects, setProjects] = React.useState<TProject[]>(
     getLocalProjects() || []
   );
@@ -21,8 +21,8 @@ const TaskList: React.FC<TaskListProps> = () => {
     setProjects((prevState) => [...prevState, item]);
   };
 
-  const deleteTask = (id: string) => {
-    if (window.confirm("Delete task?")) {
+  const deleteProject = (id: string) => {
+    if (window.confirm("Delete project?")) {
       setProjects((prevState) => prevState.filter((item) => item.id !== id));
     }
   };
@@ -42,7 +42,7 @@ const TaskList: React.FC<TaskListProps> = () => {
   return (
     <div className={style.wrapper}>
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="TaskList">
+        <Droppable droppableId="ProjectList">
           {(provided) => (
             <div
               className={style.list}
@@ -52,7 +52,7 @@ const TaskList: React.FC<TaskListProps> = () => {
               {projects.map((project, i) => (
                 <ProjectListItem
                   key={project.id}
-                  deleteTask={deleteTask}
+                  deleteProject={deleteProject}
                   {...project}
                   index={i}
                 />
@@ -67,4 +67,4 @@ const TaskList: React.FC<TaskListProps> = () => {
   );
 };
 
-export default TaskList;
+export default ProjectList;

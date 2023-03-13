@@ -14,7 +14,6 @@ interface TaskItemProps {
 
 const TaskItem: React.FC<TaskItemProps> = ({ task, index, deleteTask }) => {
   const [isOpen, setOpen] = React.useState<boolean>(false);
-
   return (
     <>
       <Draggable draggableId={task.id} index={index}>
@@ -33,7 +32,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, index, deleteTask }) => {
               {task.title}
             </div>
             <button
-              className={style.item.delete}
+              className={style.item_delete}
               onClick={() => deleteTask(task.id, task.title)}
             >
               <GlobalSvgSelector id="x" />

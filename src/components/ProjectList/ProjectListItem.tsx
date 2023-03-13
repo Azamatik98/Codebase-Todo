@@ -7,14 +7,14 @@ import style from "./TaskList.module.scss";
 interface ProjectListItemProps {
   id: string;
   title: string;
-  deleteTask: (id: string) => void;
+  deleteProject: (id: string) => void;
   index: number;
 }
 
 const ProjectListItem: React.FC<ProjectListItemProps> = ({
   id,
   title,
-  deleteTask,
+  deleteProject,
   index,
 }) => {
   return (
@@ -30,7 +30,7 @@ const ProjectListItem: React.FC<ProjectListItemProps> = ({
             {title}
           </Link>
           <button
-            onClick={() => deleteTask(id)}
+            onClick={() => deleteProject(id)}
             className={style.project_delete}
           >
             <GlobalSvgSelector id="x" />

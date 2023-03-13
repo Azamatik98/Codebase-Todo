@@ -11,7 +11,7 @@ interface ProjectToolsProps {}
 const ProjectTools: React.FC<ProjectToolsProps> = () => {
   const dispatch = useAppDispatch();
   const [open, setOpen] = React.useState<boolean>(false);
-  const [value, setValue] = React.useState<string>("");
+  const [value, setValue] = React.useState("");
 
   const updateSearchValue = React.useCallback(
     debounce((str) => {
@@ -28,7 +28,7 @@ const ProjectTools: React.FC<ProjectToolsProps> = () => {
   return (
     <>
       <div className={style.tools}>
-        <button onClick={() => setOpen(true)}>Create Task</button>
+        <button onClick={() => setOpen(true)}>Create task</button>
         <input
           type="text"
           placeholder="Поиск..."

@@ -31,7 +31,7 @@ const ProjectCreate: React.FC<ProjectCreateProps> = ({ addProject }) => {
   const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (value.length === 0 || !value.trim()) {
-      alert("Enter task name");
+      alert("Enter project name");
       return;
     }
 
