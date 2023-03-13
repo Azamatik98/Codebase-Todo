@@ -1,15 +1,15 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import { TypeTask } from "../../types/task";
+import { TProject } from "../../types/project";
 import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
 
-import "./TaskList.scss";
+import style from "./TaskList.module.scss";
 
-interface TaskCreateProps {
-  addTask: (item: TypeTask) => void;
+interface ProjectCreateProps {
+  addProject: (item: TProject) => void;
 }
 
-const TaskCreate: React.FC<TaskCreateProps> = ({ addTask }) => {
+const ProjectCreate: React.FC<ProjectCreateProps> = ({ addProject }) => {
   const [value, setValue] = React.useState("");
   const [open, setOpen] = React.useState<boolean>(false);
   const createRef = React.useRef<HTMLDivElement>(null);
@@ -36,13 +36,13 @@ const TaskCreate: React.FC<TaskCreateProps> = ({ addTask }) => {
     }
 
     const item = { id: uuidv4(), title: value };
-    addTask(item);
+    addProject(item);
     setValue("");
     setOpen(false);
   };
 
   return (
-    <div ref={createRef} className="task_create">
+    <div ref={createRef} className={style.project_create}>
       {open ? (
         <form onSubmit={onSubmit}>
           <input type="text" value={value} onChange={onChangeValue} autoFocus />
@@ -51,7 +51,7 @@ const TaskCreate: React.FC<TaskCreateProps> = ({ addTask }) => {
           </button>
         </form>
       ) : (
-        <button className="button" onClick={() => setOpen(true)}>
+        <button className={style.button} onClick={() => setOpen(true)}>
           Добавить задачу
         </button>
       )}
@@ -59,4 +59,4 @@ const TaskCreate: React.FC<TaskCreateProps> = ({ addTask }) => {
   );
 };
 
-export default TaskCreate;
+export default ProjectCreate;

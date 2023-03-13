@@ -6,37 +6,38 @@
 
 .create {
   &_title {
-    margin-bottom: 20px;
     font-size: 24px;
     font-weight: 700;
     text-align: center;
+    margin-bottom: 20px;
   }
 
   &_form {
     text-align: center;
+
     input {
       width: 100%;
-      margin-bottom: 10px;
       border-radius: 5px;
       font-size: 14px;
       padding: 10px;
+      margin-bottom: 10px;
     }
 
     textarea {
       width: 100%;
-      margin-bottom: 10px;
       border-radius: 5px;
       font-size: 14px;
       padding: 10px;
       resize: none;
+      margin-bottom: 10px;
     }
 
     select {
       display: block;
       width: 100%;
-      margin-bottom: 10px;
-      border-radius: 5px;
       padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
 
     button {

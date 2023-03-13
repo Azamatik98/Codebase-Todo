@@ -1,0 +1,23 @@
+@import "../../scss/variables";
+
+.boards {
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  width: 33%;
+  &_title {
+    padding: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 500;
+  }
+  &_content {
+    display: flex;
+    flex-direction: column;
+    background-color: $bg-secondary;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}

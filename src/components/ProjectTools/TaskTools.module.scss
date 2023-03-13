@@ -5,10 +5,10 @@
   justify-content: space-between;
   button {
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     background: #7ef80c;
     &:hover {
-      background: lighten(#7ef80c, 5);
+      background: lighten(#3b7207, 5);
     }
   }
   input {

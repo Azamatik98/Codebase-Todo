@@ -1,0 +1,17 @@
+.comment {
+  width: 100%;
+  display: flex;
+  min-height: 50px;
+  margin-bottom: 10px;
+  background-color: #f3e8e8;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid #f3e8e8;
+  align-items: center;
+  padding: 5px;
+  &_text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1f1e1e;
+  }
+}

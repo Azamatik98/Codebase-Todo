@@ -1,6 +1,6 @@
 import React from "react";
 import GlobalSvgSelector from "../../assets/icons/GlobalSvgSelector";
-import "./Modal.scss";
+import style from "./Modal.module.scss";
 
 interface ModalProps {
   children: React.ReactElement;
@@ -11,11 +11,11 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ children, setOpen, isOpen }) => {
   return (
     <div
-      className={`${"overlay"} ${isOpen && "active"} `}
+      className={`${style.overlay} ${isOpen && style.active}`}
       onClick={() => setOpen(false)}
     >
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <button className="modal_close" onClick={() => setOpen(false)}>
+      <div className={style.modal} onClick={(e) => e.stopPropagation()}>
+        <button className={style.modal_close} onClick={() => setOpen(false)}>
           <GlobalSvgSelector id="x" />
         </button>
         {children}

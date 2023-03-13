@@ -1,13 +1,13 @@
 import React from "react";
-import "./Main.scss";
-import TaskList from "../../components/TaskList";
+import style from "./Main.module.scss";
+import ProjectList from "../../components/ProjectList";
 
 interface MainProps {}
 
 const Main: React.FC<MainProps> = () => {
   return (
-    <div className="main">
-      <TaskList />
+    <div className={style.main}>
+      <ProjectList />
     </div>
   );
 };

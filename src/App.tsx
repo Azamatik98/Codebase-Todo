@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Main from "./pages/Main/Main";
-import Task from "./pages/Task";
+import Project from "./pages/Project";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/:id" element={<Task />} />
+        <Route path="/:id" element={<Project />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
