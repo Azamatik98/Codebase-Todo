@@ -2,13 +2,13 @@
   width: 100%;
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   button {
     padding: 5px;
     border-radius: 10px;
-    background: #7ef80c;
+    background: #f85151;
     &:hover {
-      background: lighten(#7ef80c, 5);
+      background: lighten(#e3f3d5, 5);
     }
   }
   input {

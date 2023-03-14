@@ -8,7 +8,7 @@ interface HeaderProps {}
 const Header: React.FC<HeaderProps> = () => {
   let { title } = useAppSelector((state) => state.project.project);
   if (useLocation().pathname === "/") {
-    title = `ToDo's`;
+    title = `Task Todo's`;
   }
   document.title = title;
   return (

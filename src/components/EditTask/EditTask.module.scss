@@ -132,21 +132,15 @@
     background-color: #dbd6d6;
   }
 }
-.high,
-.medium,
-.low {
-  text-decoration: underline;
-  text-decoration-style: double;
-}
 
 .high {
-  text-decoration-color: #ff1e00;
+  background-color: #f00e0e;
 }
 
 .medium {
-  text-decoration-color: #4ff800;
+  background-color: #4ff800;
 }
 
 .low {
-  text-decoration-color: #00fcfc;
+  background-color: #05c2f1;
 }
