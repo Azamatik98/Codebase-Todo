@@ -1,4 +1,4 @@
-### Тестовое CodeBase
+### ToDo App
 
 Реализовал ToDo Task's приложение.
 Использовал React, Redux and TypeScript
